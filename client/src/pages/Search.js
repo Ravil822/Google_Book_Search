@@ -8,7 +8,7 @@ import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
 
-class Books extends Component {
+class Search extends Component {
   state = {
     search: "",
     results: [],
@@ -64,4 +64,4 @@ class Books extends Component {
 
 
 
-export default Books;
+export default Search;
