@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import SearchForm from "../components/SearchForm";
+import ResultList from "../components/ResultList";
 
 
 class Search extends Component {
@@ -25,8 +26,9 @@ class Search extends Component {
   }
 
   getBooks = (search) => {
-    API.googleBook(search)
+    API.googleBooks(search)
       .then(res => {
+        console.log(res)
         this.setState({
           search: '',
           results: res.data.items,

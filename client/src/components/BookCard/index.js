@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import "./style.css";
 import { Card } from 'react-bootstrap';
 import API from '../../utils/API'
@@ -8,14 +8,13 @@ class BookCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      option: this.props.option,
       book: {
-        title: this.props.title,
-        image: this.props.image,
-        authors: this.props.authors,
-        description: this.props.description,
-        link: this.props.link,
-        bookId: this.props.id
+        title: this.props.book.volumeInfo.title,
+        image: this.props.book.volumeInfo.image,
+        authors: this.props.book.volumeInfo.authors,
+        description: this.props.book.volumeInfo.description,
+        link: this.props.book.volumeInfo.link,
+        bookId: this.props.book.id
       },
     }
   }
@@ -53,28 +52,26 @@ class BookCard extends Component {
 
 
 
-      <div className="card">
+    <Card>
         <div className="img-container">
-          <img alt={this.props.name} src={this.props.image} />
+          <img alt={this.props.book.name} src={this.props.book.volumeInfo.image} />
         </div>
         <div className="content">
           <ul>
             <li>
-              <strong>Title:</strong> {this.props.title}
+              <strong>Title:</strong> {this.props.book.volumeInfo.title}
             </li>
             <li>
-              <strong>Author:</strong> {this.props.authors}
+              <strong>Author:</strong> {this.props.book.volumeInfo.authors}
             </li>
+
             <li>
-              <strong>Description:</strong> {this.props.description}
-            </li>
-            <li>
-              <Card.Link href={this.props.link}>View</Card.Link>
-              <Card.Link onClick={this.handleOption} className='save-btn'>{this.state.option}</Card.Link>
+              <Card.Link href={this.props.book.volumeInfo.link}>View</Card.Link>
+               <Card.Link onClick={this.handleOption} className='save-btn'>{this.state.option}</Card.Link>
             </li>
           </ul>
         </div>
-      </div>
+      </Card>
     );
  
       

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Component } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
@@ -6,7 +6,7 @@ import API from "../utils/API";
 
 class Saved extends Component {
   state = {
-      librarysaved: [],
+      saved: [],
   }
 
   componentDidMount() {
@@ -21,4 +21,4 @@ class Saved extends Component {
 }
 
 
-export default Detail;
+export default Saved;
